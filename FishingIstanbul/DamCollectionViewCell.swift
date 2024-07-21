@@ -9,26 +9,48 @@ import UIKit
 import DGCharts
 class DamCollectionViewCell: UICollectionViewCell {
    
-    
     @IBOutlet weak var backView: UIView!
+    var pieChart : PieChartView!
+    var entries = [PieChartDataEntry]()
+    let damName = UILabel()
+
     override func awakeFromNib() {
         super.awakeFromNib()
+
+          pieChart = PieChartView(frame: backView.bounds)
+
+          backView.addSubview(pieChart)
+          backView.addSubview(damName)
+          pieChart.translatesAutoresizingMaskIntoConstraints = false
         
-        let pieChart = PieChartView(frame: backView.bounds)
-        var entries = [ChartDataEntry]()
+        damName.translatesAutoresizingMaskIntoConstraints = false
         
-        entries.append(PieChartDataEntry(value: 60, label: "Dolu"))
-        entries.append(PieChartDataEntry(value: 40, label: "Boş"))
+        NSLayoutConstraint.activate([
         
-        let set = PieChartDataSet(entries: entries)
-        pieChart.data = PieChartData(dataSet: set)
-        set.colors = ChartColorTemplates.pastel()
+            damName.topAnchor.constraint(equalTo: backView.topAnchor),
+            damName.leadingAnchor.constraint(equalTo: backView.leadingAnchor),
+            damName.heightAnchor.constraint(equalToConstant: 24),
+            damName.widthAnchor.constraint(equalToConstant: 100)
+            
+        
+        ])
+        
+       
+    }
+    
+    func set(dam : Document){
+        
+        self.entries = [PieChartDataEntry(value: dam.fields.rate.doubleValue, label: "Dolu"), PieChartDataEntry(value: (100 - dam.fields.rate.doubleValue), label: "Boş")]
+    
       
-        backView.addSubview(pieChart)
-        pieChart.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        
+        let set = PieChartDataSet(entries: entries)
+          set.colors = ChartColorTemplates.joyful()
+          pieChart.data = PieChartData(dataSet: set)
+
+      
+     
+      
+        damName.text = dam.fields.damName.stringValue
     }
     
 }
