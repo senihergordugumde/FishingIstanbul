@@ -9,12 +9,16 @@ import UIKit
 
 class AreaCollectionViewCell: UICollectionViewCell {
     
-    
+    @IBOutlet weak var fishName: UILabel!
+    @IBOutlet weak var fishImageView: UIImageView!
     override class func awakeFromNib() {
         
     }
     
-    
+    func set(fish : FishModel){
+        fishName.text = fish.name
+        fishImageView.image = UIImage(named: fish.name)
+    }
     
     
 }

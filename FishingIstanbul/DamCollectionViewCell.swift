@@ -28,7 +28,7 @@ class DamCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
         
             damName.topAnchor.constraint(equalTo: backView.topAnchor),
-            damName.leadingAnchor.constraint(equalTo: backView.leadingAnchor),
+            damName.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 15),
             damName.heightAnchor.constraint(equalToConstant: 24),
             damName.widthAnchor.constraint(equalToConstant: 100)
             
@@ -44,7 +44,10 @@ class DamCollectionViewCell: UICollectionViewCell {
     
       
         let set = PieChartDataSet(entries: entries)
-          set.colors = ChartColorTemplates.joyful()
+        set.colors = [NSUIColor(red: 27/255.0, green: 129/255.0, blue: 202/255.0, alpha: 1.0),
+                      NSUIColor(red: 255/255.0, green: 105/255.0, blue: 105/255.0, alpha: 1.0)
+]
+     
           pieChart.data = PieChartData(dataSet: set)
 
       

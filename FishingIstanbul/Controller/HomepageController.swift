@@ -7,9 +7,62 @@
 
 import UIKit
 import MapKit
-class HomepageController: UIViewController, HomepageViewModelDelegate {
+import WeatherKit
+import FirebaseFirestore
+class HomepageController: UIViewController, HomepageViewModelDelegate{
+ 
+    func updateWeather(weatherCondition: Weather) {
+        DispatchQueue.main.async {
+            self.temperature.text = weatherCondition.currentWeather.temperature.formatted()
+            
+            self.weatherImage.image = UIImage(systemName: weatherCondition.currentWeather.symbolName)
+            
+            self.windSpeed.text = weatherCondition.currentWeather.wind.speed.formatted()
+            
+            self.dateLabel.text = weatherCondition.currentWeather.date.formatted()
+            
+            let direction = weatherCondition.currentWeather.wind.compassDirection.abbreviation
+            
+            switch direction{
+                
+            case "NE":
+                self.directionLabel.text = "KD"
+            case "NW":
+                self.directionLabel.text = "KB"
+            case "SE":
+                self.directionLabel.text = "GD"
+            case "SW":
+                self.directionLabel.text = "GB"
+            case "W":
+                self.directionLabel.text = "B"
+            case "S":
+                self.directionLabel.text = "G"
+            case "N":
+                self.directionLabel.text = "K"
+            case "E":
+                self.directionLabel.text = "E"
+           
+            default:
+                break
+            }
+            
+            
+        }
+    }
+    
+    func locationForWeather(location: CLLocation) {
+        viewModel.getWeather(location: location)
+        
+    }
+    
+    func updateFishes() {
+        self.fishesCollectionView.reloadData()
+
+    }
+    
     func updateDistrict(district: String) {
         districtName.text = district
+        self.viewModel.getFishes(location: district)
     }
     
     func reloadData() {
@@ -22,9 +75,14 @@ class HomepageController: UIViewController, HomepageViewModelDelegate {
     
 
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var fishGoalLabel: UILabel!
+    @IBOutlet weak var directionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var windSpeed: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var temperature: UILabel!
+    @IBOutlet weak var weatherStatusView: UIView!
     @IBOutlet weak var districtName: UILabel!
-    @IBOutlet weak var cityImage: UIImageView!
     @IBOutlet weak var currentFish: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var progressView: UIView!
@@ -40,23 +98,23 @@ class HomepageController: UIViewController, HomepageViewModelDelegate {
         configureDamCollectionView()
         fishesCollectionViewConf() // değiştir ismi
         progressViewConf()
-        
-        getService = Get()
-        viewModel = HomepageViewModel(getService: getService)
+        viewModel = HomepageViewModel()
         viewModel.delegate = self
         viewModel.getDam()
         viewModel.checkLocationAccesExist()
         navigationItem.title = "Fishing İstanbul"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        cityImage.translatesAutoresizingMaskIntoConstraints = false
-        cityImage.layer.cornerRadius = 20
-    
-       
-      
-        
+        weatherStatusView.layer.cornerRadius = 15
+        weatherStatusView.translatesAutoresizingMaskIntoConstraints = false
+   
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let fishGoal = UserDefaults.standard.string(forKey: "fishGoal")
+        fishGoalLabel.text = "/ \(fishGoal ?? "0") balık"
+
+    }
     private func fishesCollectionViewConf(){
         fishesCollectionView.delegate = self
         fishesCollectionView.dataSource = self
@@ -66,7 +124,7 @@ class HomepageController: UIViewController, HomepageViewModelDelegate {
         
           progressView.translatesAutoresizingMaskIntoConstraints = false
           
-          progressView.layer.cornerRadius = 25
+          progressView.layer.cornerRadius = 15
           
           progressView.isUserInteractionEnabled = true
           
@@ -83,7 +141,7 @@ class HomepageController: UIViewController, HomepageViewModelDelegate {
     private func configureDamCollectionView(){
         damCollectionView.delegate = self
         damCollectionView.dataSource = self
-        damCollectionView.layer.cornerRadius = 25
+        damCollectionView.layer.cornerRadius = 15
        
     }
    
@@ -94,7 +152,7 @@ class HomepageController: UIViewController, HomepageViewModelDelegate {
     }
     @IBAction func stepperClicked(_ sender: Any) {
         
-        currentFish.text = String(Int(stepper.value))
+       
         
     }
     
@@ -107,14 +165,22 @@ extension HomepageController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if collectionView == fishesCollectionView {
+        if collectionView == fishesCollectionView{
             
-            performSegue(withIdentifier: "FishDetail", sender: nil)
-            
+            performSegue(withIdentifier: "FishDetail", sender: indexPath)
         }
-        
-        
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FishDetail"{
+            let destination = segue.destination as! FishDetailsController
+            
+            if let indexPath = sender as? IndexPath{
+                
+                destination.viewModel.fish =  viewModel.fishes[indexPath.row]
+
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -125,7 +191,7 @@ extension HomepageController : UICollectionViewDelegate, UICollectionViewDataSou
         }
         
         if collectionView == fishesCollectionView{
-            return 5
+            return viewModel.fishes.count
         }
         
         else{
@@ -136,8 +202,6 @@ extension HomepageController : UICollectionViewDelegate, UICollectionViewDataSou
  
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
         if collectionView == damCollectionView{
             let cell = damCollectionView.dequeueReusableCell(withReuseIdentifier: "damCell", for: indexPath) as! DamCollectionViewCell
             
@@ -151,6 +215,8 @@ extension HomepageController : UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == fishesCollectionView{
             let cell = fishesCollectionView.dequeueReusableCell(withReuseIdentifier: "Fishes", for: indexPath) as! AreaCollectionViewCell
             
+            
+            cell.set(fish: viewModel.fishes[indexPath.row])
             return cell
         }
         
@@ -160,10 +226,5 @@ extension HomepageController : UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         }
     }
-
-    
-    
-    
-    
 }
 
