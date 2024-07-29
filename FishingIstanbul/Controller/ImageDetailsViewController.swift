@@ -7,15 +7,33 @@
 
 import UIKit
 
-class ImageDetailsViewController: UIViewController {
- 
+class ImageDetailsViewController: UIViewController, ImageDetailsViewModelDelegate {
+    func deleteSucces() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBOutlet weak var imageView: UIImageView!
+    let viewModel = ImageDetailsViewModel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        viewModel.delegate = self
+        
+        guard let image = viewModel.selecetedImage else {
+            return
+        }
+        imageView.image = UIImage(data: image.image)
+        
     }
     
-
+    @IBAction func deleteButton(_ sender: Any) {
+        
+        guard let image = viewModel.selecetedImage else { return }
+        viewModel.delete(imageID: image.id)
+    }
+    
     /*
     // MARK: - Navigation
 

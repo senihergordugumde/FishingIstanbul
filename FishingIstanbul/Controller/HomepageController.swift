@@ -10,6 +10,7 @@ import MapKit
 import WeatherKit
 import FirebaseFirestore
 class HomepageController: UIViewController, HomepageViewModelDelegate{
+    
  
     func updateWeather(weatherCondition: Weather) {
         DispatchQueue.main.async {
@@ -48,6 +49,11 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
             
             
         }
+    }
+    
+    func stepperUpdate(value: Double) {
+        currentFish.text = value.formatted()
+        print(value)
     }
     
     func locationForWeather(location: CLLocation) {
@@ -102,13 +108,20 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
         viewModel.delegate = self
         viewModel.getDam()
         viewModel.checkLocationAccesExist()
+        confStepper()
         navigationItem.title = "Fishing İstanbul"
         navigationController?.navigationBar.prefersLargeTitles = true
         weatherStatusView.layer.cornerRadius = 15
         weatherStatusView.translatesAutoresizingMaskIntoConstraints = false
+       
+       
    
     }
     
+    func confStepper(){
+        stepper.value = UserDefaults.standard.double(forKey: "stepperValue")
+        currentFish.text = stepper.value.formatted()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         let fishGoal = UserDefaults.standard.string(forKey: "fishGoal")
@@ -152,6 +165,7 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
     }
     @IBAction func stepperClicked(_ sender: Any) {
         
+        viewModel.stepperClicked(stepper: stepper)
        
         
     }

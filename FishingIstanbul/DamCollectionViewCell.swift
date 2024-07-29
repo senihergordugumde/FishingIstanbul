@@ -18,7 +18,7 @@ class DamCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
           pieChart = PieChartView(frame: backView.bounds)
-
+          
           backView.addSubview(pieChart)
           backView.addSubview(damName)
           pieChart.translatesAutoresizingMaskIntoConstraints = false

@@ -8,12 +8,15 @@
 import Foundation
 import CoreLocation
 import WeatherKit
+import UIKit
 protocol HomepageViewModelDelegate : AnyObject{
     func reloadData()
     func updateDistrict(district: String)
     func updateFishes()
     func locationForWeather(location: CLLocation)
     func updateWeather(weatherCondition : Weather)
+    func stepperUpdate(value : Double)
+    
  
   
 }
@@ -26,6 +29,13 @@ class HomepageViewModel: NSObject ,CLLocationManagerDelegate{
     var dam = [Document]()
     var fishes = [FishModel]()
     var fishCounter = UserDefaults.standard.string(forKey: "fishCounter") ?? "0"
+    
+    
+    func stepperClicked(stepper : UIStepper){
+        UserDefaults.standard.set(stepper.value, forKey: "stepperValue")
+        self.delegate?.stepperUpdate(value: stepper.value)
+        
+    }
     
     
     func getWeather(location : CLLocation){

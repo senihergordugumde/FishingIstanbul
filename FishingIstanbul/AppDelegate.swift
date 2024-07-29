@@ -14,7 +14,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        if let fishGoal = UserDefaults.standard.object(forKey: "goalTimer") as? Date {
+                    //print("Zamanlayıcı \(fishGoal) : Tarih \(Date())")
+                    if fishGoal < Date(){
+                  
+                        let stepperValue =  UserDefaults.standard.double(forKey: "stepperValue")
+                        
+                        if var fishCountList = UserDefaults.standard.value(forKey: "fishCountList") as? [Double]{
+                            fishCountList.append(stepperValue)
+                            UserDefaults.standard.set(fishCountList, forKey: "fishCountList")
+                            print("FishCountListBulundu ve yeni değer eklendi \(fishCountList)")
+                        }
+                        
+                        else{
+                            UserDefaults.standard.set([stepperValue], forKey: "fishCountList")
+                            print("FishCountListBulunamadı ama yeni değer oluşturuldu \(stepperValue)")
+                        }
+                        
+                        
+                        UserDefaults.standard.set(0, forKey: "stepperValue")
+                        print("stepper sıfırlandı")
+                        
+                        if var dates = UserDefaults.standard.value(forKey: "dates") as? [String]{
+                            let currentDate = Date().formatted()
+                            dates.append(currentDate)
+                            UserDefaults.standard.set(Date().addingTimeInterval(7*24*60*60), forKey: "goalTimer") // tarihi otomatik olarak yeninden ayarlar
+                            UserDefaults.standard.set(dates, forKey: "dates")
+                            print("dates bulundu \(dates)")
+
+                        }
+                        else{
+                            //Eğer UserDefaults 'dates' henüz oluşmadıysa (Örneğin; uygulama ilk kez açıldı)
+                            UserDefaults.standard.set([Date().formatted()], forKey: "dates")
+                            UserDefaults.standard.set(Date().addingTimeInterval(7*24*60*60), forKey: "goalTimer")
+                            print("dates bulunamadı")
+                        }
+                    
+                     }else{
+                         
+                        print("süre henüz dolmadı")
+                     }
+                print("\(fishGoal) hedeef")
+            
+        }
+   
+       
         FirebaseApp.configure()
         return true
     }

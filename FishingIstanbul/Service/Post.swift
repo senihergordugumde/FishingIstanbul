@@ -38,7 +38,5 @@ class Post : PostService {
             completion(.failure(NSError()))
         }
     }
-    
-    
-    
+  
 }

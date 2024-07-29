@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Kovaya fotoğraf eklemek için kamera izninize ihtiyacımız var.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -22,6 +24,6 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>ver bana konum</string>
+	<string>Çevrenizdeki balıkları tespit edebilmemiz için konum izninize ihtiyaç duyuyoruz.</string>
 </dict>
 </plist>

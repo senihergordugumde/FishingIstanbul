@@ -11,6 +11,14 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
     
     func reloadData() {
         self.collectionView.reloadData()
+        
+        if viewModel.imageList.isEmpty {
+            noImages.isHidden = false
+            collectionView.isHidden = true
+        }else{
+            noImages.isHidden = true
+            collectionView.isHidden = false
+        }
     }
     
     
@@ -39,10 +47,14 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
             
             if let indexPath = sender as? IndexPath {
                 
+                destination.viewModel.selecetedImage = viewModel.imageList[indexPath.row]
+                                
+                
             }
         }
     }
     
+    @IBOutlet weak var noImages: UIImageView!
     let imagePicker = UIImagePickerController()
     let viewModel = ImagePickerViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
@@ -50,13 +62,18 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.getImages()
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
+      
        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.getImages()
+
+    }
+   
     
     @IBAction func media(_ sender: Any) {
         imagePicker.sourceType = .photoLibrary
