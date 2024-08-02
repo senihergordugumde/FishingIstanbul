@@ -11,12 +11,12 @@ import WeatherKit
 import UIKit
 protocol HomepageViewModelDelegate : AnyObject{
     func reloadData()
-    func updateDistrict(district: String)
+    func updateDistrict(district: String, city : String)
     func updateFishes()
     func locationForWeather(location: CLLocation)
     func updateWeather(weatherCondition : Weather)
     func stepperUpdate(value : Double)
-    
+    func showAlert()
  
   
 }
@@ -30,7 +30,7 @@ class HomepageViewModel: NSObject ,CLLocationManagerDelegate{
     var fishes = [FishModel]()
     var fishCounter = UserDefaults.standard.string(forKey: "fishCounter") ?? "0"
     
-    
+   
     func stepperClicked(stepper : UIStepper){
         UserDefaults.standard.set(stepper.value, forKey: "stepperValue")
         self.delegate?.stepperUpdate(value: stepper.value)
@@ -101,8 +101,7 @@ class HomepageViewModel: NSObject ,CLLocationManagerDelegate{
         case .restricted:
             print("restricted")
         case .denied:
-            locationManager.requestWhenInUseAuthorization()
-        
+            self.delegate?.showAlert()
         case .authorizedWhenInUse, .authorizedAlways:
             if let location = locationManager.location{
                 findDistrict(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -119,6 +118,10 @@ class HomepageViewModel: NSObject ,CLLocationManagerDelegate{
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuth()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("reddedildi")
     }
     
     func findDistrict(latitude : Double, longitude : Double){
@@ -138,8 +141,9 @@ class HomepageViewModel: NSObject ,CLLocationManagerDelegate{
                 return
             }
             
-            if let district = placemark.locality{
-                self.delegate?.updateDistrict(district: district)
+            if let district = placemark.locality,
+               let city = placemark.administrativeArea{
+                self.delegate?.updateDistrict(district: district, city: city)
             
             }
             

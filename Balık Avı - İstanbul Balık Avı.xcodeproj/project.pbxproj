@@ -9,9 +9,21 @@
 /* Begin PBXBuildFile section */
 		1D1923B22C49C41C0043266F /* AreaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1923B12C49C41C0043266F /* AreaCollectionViewCell.swift */; };
 		1D2640062C52D2E9007817F9 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D2640042C52D2E9007817F9 /* CoreDataModel.xcdatamodeld */; };
+		1D4326942C5BE80000CF224B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1D4326932C5BE80000CF224B /* FirebaseAuth */; };
+		1D4326962C5BE80000CF224B /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1D4326952C5BE80000CF224B /* FirebaseDatabase */; };
+		1D4326982C5BE80000CF224B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D4326972C5BE80000CF224B /* FirebaseFirestore */; };
+		1D43269A2C5BE80000CF224B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1D4326992C5BE80000CF224B /* FirebaseStorage */; };
+		1D43269C2C5BE83800CF224B /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1D43269B2C5BE83800CF224B /* DGCharts */; };
+		1D4326A02C5BE94E00CF224B /* SwiftHash in Frameworks */ = {isa = PBXBuildFile; productRef = 1D43269F2C5BE94E00CF224B /* SwiftHash */; };
+		1D4326A22C5D0D9000CF224B /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326A12C5D0D9000CF224B /* Species.swift */; };
+		1D4326A42C5D106000CF224B /* RecognizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326A32C5D106000CF224B /* RecognizeViewController.swift */; };
+		1D4326A62C5D112900CF224B /* RecognizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326A52C5D112900CF224B /* RecognizeViewModel.swift */; };
 		1D51C39D2C52461800A1E8F2 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D51C39C2C52461800A1E8F2 /* ImagePickerViewController.swift */; };
 		1D66640B2C5642F700FEF9B7 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D66640A2C5642F700FEF9B7 /* String+Ext.swift */; };
 		1D66640D2C56C4A500FEF9B7 /* FishGoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D66640C2C56C4A500FEF9B7 /* FishGoalViewModel.swift */; };
+		1D66640F2C596D7A00FEF9B7 /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D66640E2C596D7900FEF9B7 /* MapKitViewController.swift */; };
+		1D6664122C5AAC2100FEF9B7 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6664112C5AAC2100FEF9B7 /* Data+Ext.swift */; };
+		1D6664212C5BDBA500FEF9B7 /* AIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6664202C5BDBA500FEF9B7 /* AIResponseModel.swift */; };
 		1D7305D52C4D432A003E411F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D7305D42C4D432A003E411F /* GoogleService-Info.plist */; };
 		1D7305D72C4D4432003E411F /* FishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7305D62C4D4432003E411F /* FishModel.swift */; };
 		1D7E40E22C4A422D00325114 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E40E12C4A422D00325114 /* Location.swift */; };
@@ -19,11 +31,6 @@
 		1D88B6D32C4EEEBF00887769 /* FishDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88B6D22C4EEEBF00887769 /* FishDetailsViewModel.swift */; };
 		1D8B231A2C49755F003A970D /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B23192C49755F003A970D /* HomepageViewModel.swift */; };
 		1D8B231D2C497682003A970D /* DamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B231C2C497682003A970D /* DamModel.swift */; };
-		1DA1146A2C36B92D00AE038A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA114692C36B92D00AE038A /* FirebaseDatabase */; };
-		1DA1146C2C36B92D00AE038A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA1146B2C36B92D00AE038A /* FirebaseFirestore */; };
-		1DA1146E2C36B92D00AE038A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA1146D2C36B92D00AE038A /* FirebaseFirestoreSwift */; };
-		1DA114702C36B92D00AE038A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA1146F2C36B92D00AE038A /* FirebaseStorage */; };
-		1DA114732C36B97900AE038A /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA114722C36B97900AE038A /* DGCharts */; };
 		1DB4ADA12C4D472600D08AED /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E40E02C4A422500325114 /* Get.swift */; };
 		1DDEAA302C542D0900425161 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEAA2F2C542D0900425161 /* GalleryCollectionViewCell.swift */; };
 		1DDEAA322C54F5E900425161 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEAA312C54F5E900425161 /* ImageDetailsViewController.swift */; };
@@ -45,9 +52,15 @@
 /* Begin PBXFileReference section */
 		1D1923B12C49C41C0043266F /* AreaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D2640052C52D2E9007817F9 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		1D4326A12C5D0D9000CF224B /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		1D4326A32C5D106000CF224B /* RecognizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeViewController.swift; sourceTree = "<group>"; };
+		1D4326A52C5D112900CF224B /* RecognizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeViewModel.swift; sourceTree = "<group>"; };
 		1D51C39C2C52461800A1E8F2 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		1D66640A2C5642F700FEF9B7 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		1D66640C2C56C4A500FEF9B7 /* FishGoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishGoalViewModel.swift; sourceTree = "<group>"; };
+		1D66640E2C596D7900FEF9B7 /* MapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
+		1D6664112C5AAC2100FEF9B7 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
+		1D6664202C5BDBA500FEF9B7 /* AIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResponseModel.swift; sourceTree = "<group>"; };
 		1D7305D42C4D432A003E411F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1D7305D62C4D4432003E411F /* FishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishModel.swift; sourceTree = "<group>"; };
 		1D7E40E02C4A422500325114 /* Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
@@ -65,7 +78,7 @@
 		1DDEAA392C55084400425161 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1DDEAA3B2C554E2100425161 /* Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delete.swift; sourceTree = "<group>"; };
 		1DF06FD12C4E33F4002CFC9D /* FishDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetailsController.swift; sourceTree = "<group>"; };
-		1DF09B5E2C36972200F0943D /* FishingIstanbul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishingIstanbul.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF09B5E2C36972200F0943D /* Balık Avı - İstanbul Balık Avı.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balık Avı - İstanbul Balık Avı.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF09B612C36972200F0943D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DF09B632C36972200F0943D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1DF09B652C36972200F0943D /* HomepageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageController.swift; sourceTree = "<group>"; };
@@ -81,17 +94,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DA1146A2C36B92D00AE038A /* FirebaseDatabase in Frameworks */,
-				1DA114702C36B92D00AE038A /* FirebaseStorage in Frameworks */,
-				1DA114732C36B97900AE038A /* DGCharts in Frameworks */,
-				1DA1146C2C36B92D00AE038A /* FirebaseFirestore in Frameworks */,
-				1DA1146E2C36B92D00AE038A /* FirebaseFirestoreSwift in Frameworks */,
+				1D4326962C5BE80000CF224B /* FirebaseDatabase in Frameworks */,
+				1D43269A2C5BE80000CF224B /* FirebaseStorage in Frameworks */,
+				1D4326A02C5BE94E00CF224B /* SwiftHash in Frameworks */,
+				1D43269C2C5BE83800CF224B /* DGCharts in Frameworks */,
+				1D4326942C5BE80000CF224B /* FirebaseAuth in Frameworks */,
+				1D4326982C5BE80000CF224B /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D4326922C5BE7D900CF224B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D6664102C5AAC0400FEF9B7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1D6664112C5AAC2100FEF9B7 /* Data+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		1D7E40DF2C4A421B00325114 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +140,7 @@
 				1DDEAA332C54FE5900425161 /* ImageDetailsViewModel.swift */,
 				1DDEAA352C54FE6F00425161 /* ImagePickerViewModel.swift */,
 				1D66640C2C56C4A500FEF9B7 /* FishGoalViewModel.swift */,
+				1D4326A52C5D112900CF224B /* RecognizeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -123,6 +153,8 @@
 				1DF06FD12C4E33F4002CFC9D /* FishDetailsController.swift */,
 				1D51C39C2C52461800A1E8F2 /* ImagePickerViewController.swift */,
 				1DDEAA312C54F5E900425161 /* ImageDetailsViewController.swift */,
+				1D66640E2C596D7900FEF9B7 /* MapKitViewController.swift */,
+				1D4326A32C5D106000CF224B /* RecognizeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -133,6 +165,8 @@
 				1D8B231C2C497682003A970D /* DamModel.swift */,
 				1D7305D62C4D4432003E411F /* FishModel.swift */,
 				1DDEAA372C54FEEF00425161 /* ImageModel.swift */,
+				1D6664202C5BDBA500FEF9B7 /* AIResponseModel.swift */,
+				1D4326A12C5D0D9000CF224B /* Species.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,13 +176,14 @@
 			children = (
 				1DF09B602C36972200F0943D /* FishingIstanbul */,
 				1DF09B5F2C36972200F0943D /* Products */,
+				1D4326922C5BE7D900CF224B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		1DF09B5F2C36972200F0943D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1DF09B5E2C36972200F0943D /* FishingIstanbul.app */,
+				1DF09B5E2C36972200F0943D /* Balık Avı - İstanbul Balık Avı.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +191,7 @@
 		1DF09B602C36972200F0943D /* FishingIstanbul */ = {
 			isa = PBXGroup;
 			children = (
+				1D6664102C5AAC0400FEF9B7 /* Extension */,
 				1DC3EAE62C516F3300BB1844 /* FishingIstanbul.entitlements */,
 				1D7305D42C4D432A003E411F /* GoogleService-Info.plist */,
 				1D7E40DF2C4A421B00325114 /* Service */,
@@ -180,9 +216,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1DF09B5D2C36972200F0943D /* FishingIstanbul */ = {
+		1DF09B5D2C36972200F0943D /* Balık Avı - İstanbul Balık Avı */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DF09B722C36972400F0943D /* Build configuration list for PBXNativeTarget "FishingIstanbul" */;
+			buildConfigurationList = 1DF09B722C36972400F0943D /* Build configuration list for PBXNativeTarget "Balık Avı - İstanbul Balık Avı" */;
 			buildPhases = (
 				1DF09B5A2C36972200F0943D /* Sources */,
 				1DF09B5B2C36972200F0943D /* Frameworks */,
@@ -192,16 +228,17 @@
 			);
 			dependencies = (
 			);
-			name = FishingIstanbul;
+			name = "Balık Avı - İstanbul Balık Avı";
 			packageProductDependencies = (
-				1DA114692C36B92D00AE038A /* FirebaseDatabase */,
-				1DA1146B2C36B92D00AE038A /* FirebaseFirestore */,
-				1DA1146D2C36B92D00AE038A /* FirebaseFirestoreSwift */,
-				1DA1146F2C36B92D00AE038A /* FirebaseStorage */,
-				1DA114722C36B97900AE038A /* DGCharts */,
+				1D4326932C5BE80000CF224B /* FirebaseAuth */,
+				1D4326952C5BE80000CF224B /* FirebaseDatabase */,
+				1D4326972C5BE80000CF224B /* FirebaseFirestore */,
+				1D4326992C5BE80000CF224B /* FirebaseStorage */,
+				1D43269B2C5BE83800CF224B /* DGCharts */,
+				1D43269F2C5BE94E00CF224B /* SwiftHash */,
 			);
 			productName = FishingIstanbul;
-			productReference = 1DF09B5E2C36972200F0943D /* FishingIstanbul.app */;
+			productReference = 1DF09B5E2C36972200F0943D /* Balık Avı - İstanbul Balık Avı.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -219,7 +256,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1DF09B592C36972200F0943D /* Build configuration list for PBXProject "FishingIstanbul" */;
+			buildConfigurationList = 1DF09B592C36972200F0943D /* Build configuration list for PBXProject "Balık Avı - İstanbul Balık Avı" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -231,12 +268,13 @@
 			packageReferences = (
 				1DA114682C36B92C00AE038A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1DA114712C36B97900AE038A /* XCRemoteSwiftPackageReference "Charts" */,
+				1D6664222C5BE6DB00FEF9B7 /* XCRemoteSwiftPackageReference "SwiftHash" */,
 			);
 			productRefGroup = 1DF09B5F2C36972200F0943D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1DF09B5D2C36972200F0943D /* FishingIstanbul */,
+				1DF09B5D2C36972200F0943D /* Balık Avı - İstanbul Balık Avı */,
 			);
 		};
 /* End PBXProject section */
@@ -263,11 +301,15 @@
 				1D8046592C4838BB0029B086 /* FishGoalVC.swift in Sources */,
 				1DDEAA342C54FE5900425161 /* ImageDetailsViewModel.swift in Sources */,
 				1DDEAA302C542D0900425161 /* GalleryCollectionViewCell.swift in Sources */,
+				1D4326A62C5D112900CF224B /* RecognizeViewModel.swift in Sources */,
 				1D66640D2C56C4A500FEF9B7 /* FishGoalViewModel.swift in Sources */,
 				1DF09B662C36972200F0943D /* HomepageController.swift in Sources */,
 				1D7E40E22C4A422D00325114 /* Location.swift in Sources */,
+				1D66640F2C596D7A00FEF9B7 /* MapKitViewController.swift in Sources */,
 				1DF09B622C36972200F0943D /* AppDelegate.swift in Sources */,
+				1D4326A22C5D0D9000CF224B /* Species.swift in Sources */,
 				1DF09B642C36972200F0943D /* SceneDelegate.swift in Sources */,
+				1D6664122C5AAC2100FEF9B7 /* Data+Ext.swift in Sources */,
 				1D66640B2C5642F700FEF9B7 /* String+Ext.swift in Sources */,
 				1D7305D72C4D4432003E411F /* FishModel.swift in Sources */,
 				1DDEAA3C2C554E2100425161 /* Delete.swift in Sources */,
@@ -278,9 +320,11 @@
 				1DDEAA3A2C55084400425161 /* Post.swift in Sources */,
 				1D1923B22C49C41C0043266F /* AreaCollectionViewCell.swift in Sources */,
 				1D8B231D2C497682003A970D /* DamModel.swift in Sources */,
+				1D6664212C5BDBA500FEF9B7 /* AIResponseModel.swift in Sources */,
 				1DF06FD22C4E33F5002CFC9D /* FishDetailsController.swift in Sources */,
 				1DDEAA362C54FE6F00425161 /* ImagePickerViewModel.swift in Sources */,
 				1DF09B7D2C36A14300F0943D /* DamCollectionViewCell.swift in Sources */,
+				1D4326A42C5D106000CF224B /* RecognizeViewController.swift in Sources */,
 				1D88B6D32C4EEEBF00887769 /* FishDetailsViewModel.swift in Sources */,
 				1D2640062C52D2E9007817F9 /* CoreDataModel.xcdatamodeld in Sources */,
 				1DDEAA322C54F5E900425161 /* ImageDetailsViewController.swift in Sources */,
@@ -491,7 +535,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DF09B592C36972200F0943D /* Build configuration list for PBXProject "FishingIstanbul" */ = {
+		1DF09B592C36972200F0943D /* Build configuration list for PBXProject "Balık Avı - İstanbul Balık Avı" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DF09B702C36972400F0943D /* Debug */,
@@ -500,7 +544,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DF09B722C36972400F0943D /* Build configuration list for PBXNativeTarget "FishingIstanbul" */ = {
+		1DF09B722C36972400F0943D /* Build configuration list for PBXNativeTarget "Balık Avı - İstanbul Balık Avı" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DF09B732C36972400F0943D /* Debug */,
@@ -512,6 +556,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1D6664222C5BE6DB00FEF9B7 /* XCRemoteSwiftPackageReference "SwiftHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onmyway133/SwiftHash";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
 		1DA114682C36B92C00AE038A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -531,30 +583,35 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1DA114692C36B92D00AE038A /* FirebaseDatabase */ = {
+		1D4326932C5BE80000CF224B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DA114682C36B92C00AE038A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1D4326952C5BE80000CF224B /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1DA114682C36B92C00AE038A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
-		1DA1146B2C36B92D00AE038A /* FirebaseFirestore */ = {
+		1D4326972C5BE80000CF224B /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1DA114682C36B92C00AE038A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		1DA1146D2C36B92D00AE038A /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1DA114682C36B92C00AE038A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
-		1DA1146F2C36B92D00AE038A /* FirebaseStorage */ = {
+		1D4326992C5BE80000CF224B /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1DA114682C36B92C00AE038A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		1DA114722C36B97900AE038A /* DGCharts */ = {
+		1D43269B2C5BE83800CF224B /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1DA114712C36B97900AE038A /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
+		};
+		1D43269F2C5BE94E00CF224B /* SwiftHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D6664222C5BE6DB00FEF9B7 /* XCRemoteSwiftPackageReference "SwiftHash" */;
+			productName = SwiftHash;
 		};
 /* End XCSwiftPackageProductDependency section */
 

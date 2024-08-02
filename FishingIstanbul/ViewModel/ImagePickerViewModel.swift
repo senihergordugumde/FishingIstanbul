@@ -12,6 +12,8 @@ import UIKit
 protocol ImagePickerViewModelDelegate : AnyObject {
     
     func reloadData()
+    func fishRecognize(fishName : [Species])
+    
     
 }
 class ImagePickerViewModel {
@@ -50,7 +52,34 @@ class ImagePickerViewModel {
         }
     }
     
-    
-    
+    func getToken(filename: String, content_type: String, byte_size: Int, checksum: String, image: Data){
+        getService.getRecognizeToken { token in
+            self.postSerivce.imageToCloud(token: token, filename: filename, content_type: content_type, byte_size: byte_size, checksum: checksum) { result in
+                switch result {
+                case .success(let model):
+                    self.postSerivce.uploadImage(model: model, image: image) { result in
+                        switch result {
+                        case .success():
+                            self.getService.getAIResponse(signedID: model.signedID, token: token) { fishName in
+                                print(fishName)
+                                switch fishName{
+                                    case .success(let fishNames):
+                                        self.delegate?.fishRecognize(fishName: fishNames)
+                                    case .failure(_):
+                                        print("Fish error")
+                                    }
+                            }
+                        case .failure(_):
+                            print("recognize fault")
+                        }
+                    }
+                   
+                case .failure(_):
+                    print("error")
+                }
+            }
+        }
+    }
+ 
     
 }

@@ -22,7 +22,7 @@ class FishDetailsController: UIViewController{
         super.viewDidLoad()
         
         fishName.text = viewModel.fish?.name
-        locationsLabel.text = viewModel.fish?.locations.formatted()
+        locationsLabel.text = viewModel.fish?.subLocations.formatted()
         DispatchQueue.main.async {
             self.fishImage.image = UIImage(named: self.viewModel.fish!.name)
         }

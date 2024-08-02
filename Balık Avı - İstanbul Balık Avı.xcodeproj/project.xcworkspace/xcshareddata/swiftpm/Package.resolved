@@ -1,5 +1,5 @@
 {
-  "originHash" : "fc63636c727707c33dc7713309f39ae0f6e98f0970a2c3347abebd4777745a4f",
+  "originHash" : "597e1f62e8ec506af24c5b03628924abeed87d6dd440515bffdfed6e97d08aa1",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -125,6 +125,15 @@
       "state" : {
         "revision" : "9f0c76544701845ad98716f3f6a774a892152bcb",
         "version" : "1.26.0"
+      }
+    },
+    {
+      "identity" : "swifthash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onmyway133/SwiftHash",
+      "state" : {
+        "revision" : "a900fc3f33c67eb33c9e650651edf6e23a410b3c",
+        "version" : "2.0.2"
       }
     }
   ],

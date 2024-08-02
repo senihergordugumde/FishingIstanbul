@@ -29,7 +29,14 @@ class FishGoalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
         
         UserDefaults.standard.set(fishGoal[row], forKey: "fishGoal")
-        UserDefaults.standard.set(Date().addingTimeInterval(7*24*60*60), forKey: "goalTimer")
+        
+        
+        guard let temp = UserDefaults.standard.value(forKey: "goalTimer") else {
+            UserDefaults.standard.set(Date().addingTimeInterval(7*24*60*60), forKey: "goalTimer")
+            return
+        }
+
+       
         
     }
     

@@ -7,7 +7,25 @@
 
 import UIKit
 import CoreData
+import SwiftHash
+import CryptoKit
+import CommonCrypto
+
 class ImagePickerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ImagePickerViewModelDelegate {
+    
+    
+    func fishRecognize(fishName: [Species]) {
+       
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "Recognize", sender: nil)
+
+        }
+    }
+    
+    
+  
+    
+ 
     
     func reloadData() {
         self.collectionView.reloadData()
@@ -85,16 +103,27 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func camera(_ sender: Any) {
         imagePicker.sourceType = .camera
         imagePicker.delegate = self
-        imagePicker.allowsEditing = true
+        imagePicker.allowsEditing = false
         present(imagePicker, animated: true)
     }
-    
-    
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-     
-        viewModel.postImage(image: info[.originalImage] as! UIImage)
         
+        let image = info[.originalImage] as! UIImage
+    
+        if let file = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+                do {
+                    let imageData = try Data(contentsOf: file)
+                    let hash = imageData.md5Base64
+                    print("MD5 Base64: \(hash)")
+                    
+                    viewModel.getToken(filename: file.lastPathComponent, content_type: "image/jpeg", byte_size: imageData.count , checksum: hash, image: imageData)
+                    
+                } catch {
+                    print(error)
+                }
+            }
+        viewModel.postImage(image: info[.originalImage] as! UIImage)
         self.dismiss(animated: true)
     }
     

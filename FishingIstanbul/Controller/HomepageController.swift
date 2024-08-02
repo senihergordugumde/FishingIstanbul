@@ -10,6 +10,25 @@ import MapKit
 import WeatherKit
 import FirebaseFirestore
 class HomepageController: UIViewController, HomepageViewModelDelegate{
+    func showAlert() {
+        let alert = UIAlertController(title: "Konum Kapalı", message: "Doğru veriler için konum izninize ihtiyaç duyuyoruz.", preferredStyle: UIAlertController.Style.alert)
+        self.present(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Ayarlara Git", style: .default, handler: { action in
+                switch action.style{
+        
+                case .default:
+                    UIApplication.shared.openURL(NSURL(string: UIApplication.openSettingsURLString)! as URL)
+                case .cancel:
+                    print("cancel")
+                case .destructive:
+                    print("destructive")
+
+                @unknown default:
+                    print("def")
+                }
+            }))
+    }
+    
     
  
     func updateWeather(weatherCondition: Weather) {
@@ -66,8 +85,9 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
 
     }
     
-    func updateDistrict(district: String) {
+    func updateDistrict(district: String, city : String) {
         districtName.text = district
+        cityName.text = city
         self.viewModel.getFishes(location: district)
     }
     
@@ -95,6 +115,8 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var damCollectionView: UICollectionView!
     
+    @IBOutlet weak var cityName: UILabel!
+    @IBOutlet weak var fishError: UIView!
     @IBOutlet weak var fishesCollectionView: UICollectionView!
     var getService: GetService!
        var viewModel: HomepageViewModel!
@@ -205,6 +227,15 @@ extension HomepageController : UICollectionViewDelegate, UICollectionViewDataSou
         }
         
         if collectionView == fishesCollectionView{
+            
+            if viewModel.fishes.count <= 0 {
+                fishError.isHidden = false
+                collectionView.isHidden = true
+            } else {
+                fishError.isHidden = true
+                collectionView.isHidden = false
+            }
+            
             return viewModel.fishes.count
         }
         
