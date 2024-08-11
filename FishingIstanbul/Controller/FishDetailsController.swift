@@ -15,14 +15,13 @@ class FishDetailsController: UIViewController{
     
     @IBOutlet weak var fishImage: UIImageView!
     @IBOutlet weak var locationsLabel: UILabel!
-    let liste = ["Mevsim", "Konumalar"]
     var viewModel = FishDetailsViewModel()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fishName.text = viewModel.fish?.name
-        locationsLabel.text = viewModel.fish?.subLocations.formatted()
+       
         DispatchQueue.main.async {
             self.fishImage.image = UIImage(named: self.viewModel.fish!.name)
         }

@@ -9,7 +9,12 @@ import UIKit
 import MapKit
 import WeatherKit
 import FirebaseFirestore
-class HomepageController: UIViewController, HomepageViewModelDelegate{
+import GoogleMobileAds
+
+class HomepageController: UIViewController, HomepageViewModelDelegate, GADFullScreenContentDelegate{
+    
+
+    
     func showAlert() {
         let alert = UIAlertController(title: "Konum Kapalı", message: "Doğru veriler için konum izninize ihtiyaç duyuyoruz.", preferredStyle: UIAlertController.Style.alert)
         self.present(alert, animated: true, completion: nil)
@@ -33,6 +38,19 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
  
     func updateWeather(weatherCondition: Weather) {
         DispatchQueue.main.async {
+            
+           
+            
+            let fishingProbability = FishingProbability(temperature: weatherCondition.currentWeather.temperature.value, wind_speed: weatherCondition.currentWeather.wind.speed.value, pressure: weatherCondition.currentWeather.pressure.value, uv_index: Double(weatherCondition.currentWeather.uvIndex.value), precipitation_intensity: weatherCondition.currentWeather.precipitationIntensity.value, visibility: weatherCondition.currentWeather.visibility.value, humidity: weatherCondition.currentWeather.humidity, hour: weatherCondition.currentWeather.date.hour)
+      
+            
+            let fishProbabilityCounter = fishingProbability.calculateFishingProbability(params: fishingProbability).rounded()
+            
+            self.fishProbabilityCount.text = "Bugün Balık Tutma İhtimaliniz %\(fishProbabilityCounter)"
+            
+            self.progressBar.progress = Float(fishProbabilityCounter / 100)
+        
+            
             self.temperature.text = weatherCondition.currentWeather.temperature.formatted()
             
             self.weatherImage.image = UIImage(systemName: weatherCondition.currentWeather.symbolName)
@@ -43,23 +61,24 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
             
             let direction = weatherCondition.currentWeather.wind.compassDirection.abbreviation
             
+            print(direction)
             switch direction{
                 
-            case "NE":
+            case "NE", "NNE":
                 self.directionLabel.text = "KD"
-            case "NW":
+            case "NW", "NNW":
                 self.directionLabel.text = "KB"
-            case "SE":
+            case "SE", "SSE":
                 self.directionLabel.text = "GD"
-            case "SW":
+            case "SW", "WSW":
                 self.directionLabel.text = "GB"
-            case "W":
+            case "W", "WNW":
                 self.directionLabel.text = "B"
-            case "S":
+            case "S", "SSW":
                 self.directionLabel.text = "G"
-            case "N":
+            case "N", "NNW":
                 self.directionLabel.text = "K"
-            case "E":
+            case "E","ESE":
                 self.directionLabel.text = "E"
            
             default:
@@ -88,7 +107,8 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
     func updateDistrict(district: String, city : String) {
         districtName.text = district
         cityName.text = city
-        self.viewModel.getFishes(location: district)
+      
+        self.viewModel.getFishes(district: district.turnToEnglish())
     }
     
     func reloadData() {
@@ -115,12 +135,14 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var damCollectionView: UICollectionView!
     
+    @IBOutlet weak var fishProbabilityCount: UILabel!
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var fishError: UIView!
     @IBOutlet weak var fishesCollectionView: UICollectionView!
     var getService: GetService!
        var viewModel: HomepageViewModel!
-  
+    private var interstitial: GADInterstitialAd?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDamCollectionView()
@@ -136,10 +158,39 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
         weatherStatusView.layer.cornerRadius = 15
         weatherStatusView.translatesAutoresizingMaskIntoConstraints = false
        
-       
-   
-    }
-    
+        Task {
+             do {
+                 interstitial = try await GADInterstitialAd.load(
+                   withAdUnitID: "ca-app-pub-4730844635676967/9466053486", request: GADRequest())
+                 interstitial?.fullScreenContentDelegate = self
+               } catch {
+                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+               }
+         }
+        
+        guard let interstitial = interstitial else {
+          return print("Ad wasn't ready.")
+        }
+
+        // The UIViewController parameter is an optional.
+        interstitial.present(fromRootViewController: nil)
+        
+        }
+
+        /// Tells the delegate that the ad failed to present full screen content.
+        func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+          print("Ad did fail to present full screen content.")
+        }
+
+        /// Tells the delegate that the ad will present full screen content.
+        func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+          print("Ad will present full screen content.")
+        }
+
+        /// Tells the delegate that the ad dismissed full screen content.
+        func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+          print("Ad did dismiss full screen content.")
+        }
     func confStepper(){
         stepper.value = UserDefaults.standard.double(forKey: "stepperValue")
         currentFish.text = stepper.value.formatted()
@@ -192,6 +243,8 @@ class HomepageController: UIViewController, HomepageViewModelDelegate{
         
     }
     
+ 
+    
 }
 
 
@@ -203,7 +256,7 @@ extension HomepageController : UICollectionViewDelegate, UICollectionViewDataSou
         
         if collectionView == fishesCollectionView{
             
-            performSegue(withIdentifier: "FishDetail", sender: indexPath)
+            //performSegue(withIdentifier: "FishDetail", sender: indexPath)
         }
     }
     

@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 import WeatherKit
 import UIKit
+import FirebaseFirestore
 protocol HomepageViewModelDelegate : AnyObject{
     func reloadData()
     func updateDistrict(district: String, city : String)
@@ -51,16 +52,23 @@ class HomepageViewModel: NSObject ,CLLocationManagerDelegate{
     }
     
     
-    func getFishes(location : String){
-        getService.getFishes(location: location) { Result in
-            switch Result{
+    func getFishes(district : String){
+        let firestore = Firestore.firestore()
+        let path = firestore.collection("Fishes").whereField("locations", arrayContains: district)
+        
+        FirebaseManager.shared.getFishes(queryPath: path) { Result in
+            switch Result {
             case .success(let fishes):
                 self.fishes = fishes
                 self.delegate?.updateFishes()
-            case .failure(_):
+
+            case .failure(let failure):
                 print("hata")
+
             }
         }
+        
+       
     }
     
     
@@ -87,6 +95,7 @@ class HomepageViewModel: NSObject ,CLLocationManagerDelegate{
         }
         self.locationManager = CLLocationManager()
         self.locationManager!.delegate = self
+    
     }
     
    

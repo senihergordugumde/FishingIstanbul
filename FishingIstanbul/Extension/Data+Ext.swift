@@ -25,9 +25,8 @@ extension Data {
         digest.withUnsafeMutableBytes { (pointer: UnsafeMutableRawBufferPointer) in
             _ = CC_MD5_Final(pointer.baseAddress, &context)
         }
-
-        let result = digest.map { String(format: "%02hhx", $0) }.joined()
-        return result
+        
+        return digest.base64EncodedString()
     }
 
 }

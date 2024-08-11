@@ -12,5 +12,5 @@ struct FishModel : Codable{
     
     var name : String
     var locations : [String]
-    var subLocations : [String]
+    var sublocations : [String]
 }

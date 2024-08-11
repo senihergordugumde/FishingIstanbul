@@ -44,7 +44,7 @@ class DamCollectionViewCell: UICollectionViewCell {
     
       
         let set = PieChartDataSet(entries: entries)
-        set.colors = [NSUIColor(red: 27/255.0, green: 129/255.0, blue: 202/255.0, alpha: 1.0),
+        set.colors = [NSUIColor(red: 49/255.0, green: 211/255.0, blue: 248/255.0, alpha: 1.0),
                       NSUIColor(red: 255/255.0, green: 105/255.0, blue: 105/255.0, alpha: 1.0)
 ]
      

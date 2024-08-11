@@ -14,14 +14,7 @@ import CommonCrypto
 class ImagePickerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ImagePickerViewModelDelegate {
     
     
-    func fishRecognize(fishName: [Species]) {
-       
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "Recognize", sender: nil)
-
-        }
-    }
-    
+   
     
   
     
@@ -82,7 +75,7 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
         viewModel.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
       
        
     }
@@ -111,19 +104,10 @@ class ImagePickerViewController: UIViewController, UIImagePickerControllerDelega
         
         let image = info[.originalImage] as! UIImage
     
-        if let file = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-                do {
-                    let imageData = try Data(contentsOf: file)
-                    let hash = imageData.md5Base64
-                    print("MD5 Base64: \(hash)")
-                    
-                    viewModel.getToken(filename: file.lastPathComponent, content_type: "image/jpeg", byte_size: imageData.count , checksum: hash, image: imageData)
-                    
-                } catch {
-                    print(error)
-                }
-            }
+  
         viewModel.postImage(image: info[.originalImage] as! UIImage)
+        
+        
         self.dismiss(animated: true)
     }
     

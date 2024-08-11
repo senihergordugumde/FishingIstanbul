@@ -7,29 +7,83 @@
 
 import UIKit
 import MapKit
-class MapKitViewController: UIViewController {
+import FirebaseFirestore
+class MapKitViewController: UIViewController, MapKitViewModelDelegate, MKMapViewDelegate {
+    
+  
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        guard let annotation = view.annotation as? CustomAnnotationPoint else { return }
+        
+        
+        
+        self.performSegue(withIdentifier: "Region", sender: annotation)
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Region" {
+            
+            let destination = segue.destination as! RegionDetailsViewController
+            
+            if let annotation = sender as? CustomAnnotationPoint {
+                print(annotation)
+                destination.viewModel.selectedRegion = annotation.title
+                destination.viewModel.imageUrl = annotation.imageUrl
+                
+            }
+            
+        }
+    }
+    
+    
+    func addPinToMap(title: String, coordinate: CLLocationCoordinate2D, imageUrl : String) {
+        let annotation = CustomAnnotationPoint()
+        annotation.coordinate = coordinate
+        annotation.title = title
+        annotation.imageUrl = imageUrl
+        mapView.addAnnotation(annotation)
+    
+    }
+    
 
     @IBOutlet weak var mapView: MKMapView!
     
-    let list = [CLLocationCoordinate2D(latitude: 41.01824, longitude: 28.97255), CLLocationCoordinate2D(latitude: 41.02753, longitude: 28.79630),CLLocationCoordinate2D(latitude: 41.01825, longitude: 28.97255)]
+    let viewModel = MapKitViewModel()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        viewModel.delegate = self
+        mapView.delegate = self
+        LocationManager.shared.checkLocationAccesExist()
         
-        
-        for i in list {
-            let annotation =  MKPointAnnotation()
-
-            annotation.coordinate = i
-            annotation.title = "Galata Köprüsü"
-            mapView.addAnnotation(annotation)
-            
+        LocationManager.shared.checkLocationAuth { result in
+            switch result {
+            case .success(let location):
+                self.findDistrict(for: location)
+            case .failure(let failure):
+                print("hata")
+            }
         }
-     
-       
+        
+        
     }
     
  
-
+    private func findDistrict(for location: CLLocation) {
+        LocationManager.shared.findDistrict(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { result in
+            switch result {
+            case .success(let placemark):
+                if let district = placemark.locality, let city = placemark.administrativeArea {
+                    print("İlçe: \(district), Şehir: \(city)")
+                    self.viewModel.getMapLocations(city: city)
+                }
+            case .failure(let error):
+                print("İlçe bulunamadı: \(error.localizedDescription)")
+            }
+        }
+    }
 }

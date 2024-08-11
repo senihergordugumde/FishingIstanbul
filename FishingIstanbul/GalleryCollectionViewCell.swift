@@ -17,7 +17,11 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     
     
     func set(image : ImageModel){
-        self.imageView.image = UIImage(data: image.image )
+        self.imageView.image = UIImage(data: image.image)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 15
+        imageView.clipsToBounds = true
     }
     
     

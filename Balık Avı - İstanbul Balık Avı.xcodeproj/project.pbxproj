@@ -15,10 +15,17 @@
 		1D43269A2C5BE80000CF224B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1D4326992C5BE80000CF224B /* FirebaseStorage */; };
 		1D43269C2C5BE83800CF224B /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1D43269B2C5BE83800CF224B /* DGCharts */; };
 		1D4326A02C5BE94E00CF224B /* SwiftHash in Frameworks */ = {isa = PBXBuildFile; productRef = 1D43269F2C5BE94E00CF224B /* SwiftHash */; };
-		1D4326A22C5D0D9000CF224B /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326A12C5D0D9000CF224B /* Species.swift */; };
+		1D4326A22C5D0D9000CF224B /* FishResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326A12C5D0D9000CF224B /* FishResponse.swift */; };
 		1D4326A42C5D106000CF224B /* RecognizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326A32C5D106000CF224B /* RecognizeViewController.swift */; };
 		1D4326A62C5D112900CF224B /* RecognizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326A52C5D112900CF224B /* RecognizeViewModel.swift */; };
+		1D4326A92C5D45D000CF224B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326A82C5D45D000CF224B /* Endpoint.swift */; };
+		1D4326AB2C5D768A00CF224B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326AA2C5D768A00CF224B /* NetworkManager.swift */; };
+		1D4326AD2C5D783500CF224B /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326AC2C5D783500CF224B /* Token.swift */; };
+		1D4326AF2C5D7B9F00CF224B /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4326AE2C5D7B9F00CF224B /* EmptyResponse.swift */; };
 		1D51C39D2C52461800A1E8F2 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D51C39C2C52461800A1E8F2 /* ImagePickerViewController.swift */; };
+		1D58F35B2C5EF55C00E7BAE5 /* RecognitionResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D58F35A2C5EF55C00E7BAE5 /* RecognitionResultViewController.swift */; };
+		1D58F35D2C5F5DCE00E7BAE5 /* ViewControllert+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D58F35C2C5F5DCE00E7BAE5 /* ViewControllert+Ext.swift */; };
+		1D58F35F2C5FC8F600E7BAE5 /* RecognitionResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D58F35E2C5FC8F600E7BAE5 /* RecognitionResultViewModel.swift */; };
 		1D66640B2C5642F700FEF9B7 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D66640A2C5642F700FEF9B7 /* String+Ext.swift */; };
 		1D66640D2C56C4A500FEF9B7 /* FishGoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D66640C2C56C4A500FEF9B7 /* FishGoalViewModel.swift */; };
 		1D66640F2C596D7A00FEF9B7 /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D66640E2C596D7900FEF9B7 /* MapKitViewController.swift */; };
@@ -31,6 +38,17 @@
 		1D88B6D32C4EEEBF00887769 /* FishDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88B6D22C4EEEBF00887769 /* FishDetailsViewModel.swift */; };
 		1D8B231A2C49755F003A970D /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B23192C49755F003A970D /* HomepageViewModel.swift */; };
 		1D8B231D2C497682003A970D /* DamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B231C2C497682003A970D /* DamModel.swift */; };
+		1DB4061E2C62743800C8097A /* FirebaseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4061D2C62743800C8097A /* FirebaseEndpoint.swift */; };
+		1DB406202C6276A400C8097A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4061F2C6276A400C8097A /* FirebaseManager.swift */; };
+		1DB406222C6287FB00C8097A /* MapLocationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB406212C6287FB00C8097A /* MapLocationsModel.swift */; };
+		1DB406242C62911D00C8097A /* MapKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB406232C62911D00C8097A /* MapKitViewModel.swift */; };
+		1DB406282C6297F100C8097A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB406272C6297F100C8097A /* LocationManager.swift */; };
+		1DB406812C63E90E00C8097A /* RegionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB406802C63E90E00C8097A /* RegionDetailsViewController.swift */; };
+		1DB406832C63E92C00C8097A /* RegionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB406822C63E92C00C8097A /* RegionDetailsViewModel.swift */; };
+		1DB406852C64F4A300C8097A /* CustomAnnotationPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB406842C64F4A300C8097A /* CustomAnnotationPoint.swift */; };
+		1DB406882C65440A00C8097A /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1DB406872C65440A00C8097A /* GoogleMobileAds */; };
+		1DB4068A2C66847400C8097A /* FishingProbability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB406892C66847300C8097A /* FishingProbability.swift */; };
+		1DB4068C2C6685D300C8097A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4068B2C6685D300C8097A /* Date+Ext.swift */; };
 		1DB4ADA12C4D472600D08AED /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E40E02C4A422500325114 /* Get.swift */; };
 		1DDEAA302C542D0900425161 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEAA2F2C542D0900425161 /* GalleryCollectionViewCell.swift */; };
 		1DDEAA322C54F5E900425161 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDEAA312C54F5E900425161 /* ImageDetailsViewController.swift */; };
@@ -52,10 +70,17 @@
 /* Begin PBXFileReference section */
 		1D1923B12C49C41C0043266F /* AreaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D2640052C52D2E9007817F9 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
-		1D4326A12C5D0D9000CF224B /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		1D4326A12C5D0D9000CF224B /* FishResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishResponse.swift; sourceTree = "<group>"; };
 		1D4326A32C5D106000CF224B /* RecognizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeViewController.swift; sourceTree = "<group>"; };
 		1D4326A52C5D112900CF224B /* RecognizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeViewModel.swift; sourceTree = "<group>"; };
+		1D4326A82C5D45D000CF224B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		1D4326AA2C5D768A00CF224B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1D4326AC2C5D783500CF224B /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		1D4326AE2C5D7B9F00CF224B /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
 		1D51C39C2C52461800A1E8F2 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		1D58F35A2C5EF55C00E7BAE5 /* RecognitionResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionResultViewController.swift; sourceTree = "<group>"; };
+		1D58F35C2C5F5DCE00E7BAE5 /* ViewControllert+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllert+Ext.swift"; sourceTree = "<group>"; };
+		1D58F35E2C5FC8F600E7BAE5 /* RecognitionResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionResultViewModel.swift; sourceTree = "<group>"; };
 		1D66640A2C5642F700FEF9B7 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		1D66640C2C56C4A500FEF9B7 /* FishGoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishGoalViewModel.swift; sourceTree = "<group>"; };
 		1D66640E2C596D7900FEF9B7 /* MapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +94,16 @@
 		1D88B6D22C4EEEBF00887769 /* FishDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetailsViewModel.swift; sourceTree = "<group>"; };
 		1D8B23192C49755F003A970D /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
 		1D8B231C2C497682003A970D /* DamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamModel.swift; sourceTree = "<group>"; };
+		1DB4061D2C62743800C8097A /* FirebaseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseEndpoint.swift; sourceTree = "<group>"; };
+		1DB4061F2C6276A400C8097A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		1DB406212C6287FB00C8097A /* MapLocationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationsModel.swift; sourceTree = "<group>"; };
+		1DB406232C62911D00C8097A /* MapKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewModel.swift; sourceTree = "<group>"; };
+		1DB406272C6297F100C8097A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		1DB406802C63E90E00C8097A /* RegionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDetailsViewController.swift; sourceTree = "<group>"; };
+		1DB406822C63E92C00C8097A /* RegionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDetailsViewModel.swift; sourceTree = "<group>"; };
+		1DB406842C64F4A300C8097A /* CustomAnnotationPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationPoint.swift; sourceTree = "<group>"; };
+		1DB406892C66847300C8097A /* FishingProbability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingProbability.swift; sourceTree = "<group>"; };
+		1DB4068B2C6685D300C8097A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		1DC3EAE62C516F3300BB1844 /* FishingIstanbul.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FishingIstanbul.entitlements; sourceTree = "<group>"; };
 		1DDEAA2F2C542D0900425161 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		1DDEAA312C54F5E900425161 /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +135,7 @@
 				1D43269C2C5BE83800CF224B /* DGCharts in Frameworks */,
 				1D4326942C5BE80000CF224B /* FirebaseAuth in Frameworks */,
 				1D4326982C5BE80000CF224B /* FirebaseFirestore in Frameworks */,
+				1DB406882C65440A00C8097A /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,10 +149,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1D4326A72C5D45C100CF224B /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				1D4326AA2C5D768A00CF224B /* NetworkManager.swift */,
+				1D4326A82C5D45D000CF224B /* Endpoint.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 		1D6664102C5AAC0400FEF9B7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1D66640A2C5642F700FEF9B7 /* String+Ext.swift */,
 				1D6664112C5AAC2100FEF9B7 /* Data+Ext.swift */,
+				1D58F35C2C5F5DCE00E7BAE5 /* ViewControllert+Ext.swift */,
+				1DB4068B2C6685D300C8097A /* Date+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -141,6 +189,9 @@
 				1DDEAA352C54FE6F00425161 /* ImagePickerViewModel.swift */,
 				1D66640C2C56C4A500FEF9B7 /* FishGoalViewModel.swift */,
 				1D4326A52C5D112900CF224B /* RecognizeViewModel.swift */,
+				1D58F35E2C5FC8F600E7BAE5 /* RecognitionResultViewModel.swift */,
+				1DB406232C62911D00C8097A /* MapKitViewModel.swift */,
+				1DB406822C63E92C00C8097A /* RegionDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,6 +206,8 @@
 				1DDEAA312C54F5E900425161 /* ImageDetailsViewController.swift */,
 				1D66640E2C596D7900FEF9B7 /* MapKitViewController.swift */,
 				1D4326A32C5D106000CF224B /* RecognizeViewController.swift */,
+				1D58F35A2C5EF55C00E7BAE5 /* RecognitionResultViewController.swift */,
+				1DB406802C63E90E00C8097A /* RegionDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -166,9 +219,40 @@
 				1D7305D62C4D4432003E411F /* FishModel.swift */,
 				1DDEAA372C54FEEF00425161 /* ImageModel.swift */,
 				1D6664202C5BDBA500FEF9B7 /* AIResponseModel.swift */,
-				1D4326A12C5D0D9000CF224B /* Species.swift */,
+				1D4326A12C5D0D9000CF224B /* FishResponse.swift */,
+				1D4326AC2C5D783500CF224B /* Token.swift */,
+				1D4326AE2C5D7B9F00CF224B /* EmptyResponse.swift */,
+				1DB406212C6287FB00C8097A /* MapLocationsModel.swift */,
+				1DB406892C66847300C8097A /* FishingProbability.swift */,
+				1DB4061C2C62742200C8097A /* FirebaseManager */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1DB4061C2C62742200C8097A /* FirebaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				1DB4061D2C62743800C8097A /* FirebaseEndpoint.swift */,
+				1DB4061F2C6276A400C8097A /* FirebaseManager.swift */,
+			);
+			path = FirebaseManager;
+			sourceTree = "<group>";
+		};
+		1DB406252C6297C500C8097A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1DB406262C6297D800C8097A /* LocationManager */,
+				1D4326A72C5D45C100CF224B /* NetworkManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1DB406262C6297D800C8097A /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				1DB406272C6297F100C8097A /* LocationManager.swift */,
+			);
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 		1DF09B552C36972200F0943D = {
@@ -191,6 +275,7 @@
 		1DF09B602C36972200F0943D /* FishingIstanbul */ = {
 			isa = PBXGroup;
 			children = (
+				1DB406252C6297C500C8097A /* Managers */,
 				1D6664102C5AAC0400FEF9B7 /* Extension */,
 				1DC3EAE62C516F3300BB1844 /* FishingIstanbul.entitlements */,
 				1D7305D42C4D432A003E411F /* GoogleService-Info.plist */,
@@ -208,7 +293,7 @@
 				1DF09B7C2C36A14300F0943D /* DamCollectionViewCell.swift */,
 				1D2640042C52D2E9007817F9 /* CoreDataModel.xcdatamodeld */,
 				1DDEAA2F2C542D0900425161 /* GalleryCollectionViewCell.swift */,
-				1D66640A2C5642F700FEF9B7 /* String+Ext.swift */,
+				1DB406842C64F4A300C8097A /* CustomAnnotationPoint.swift */,
 			);
 			path = FishingIstanbul;
 			sourceTree = "<group>";
@@ -236,6 +321,7 @@
 				1D4326992C5BE80000CF224B /* FirebaseStorage */,
 				1D43269B2C5BE83800CF224B /* DGCharts */,
 				1D43269F2C5BE94E00CF224B /* SwiftHash */,
+				1DB406872C65440A00C8097A /* GoogleMobileAds */,
 			);
 			productName = FishingIstanbul;
 			productReference = 1DF09B5E2C36972200F0943D /* Balık Avı - İstanbul Balık Avı.app */;
@@ -269,6 +355,8 @@
 				1DA114682C36B92C00AE038A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1DA114712C36B97900AE038A /* XCRemoteSwiftPackageReference "Charts" */,
 				1D6664222C5BE6DB00FEF9B7 /* XCRemoteSwiftPackageReference "SwiftHash" */,
+				1DB406172C623DFA00C8097A /* XCRemoteSwiftPackageReference "mongo-swift-driver" */,
+				1DB406862C65440A00C8097A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 1DF09B5F2C36972200F0943D /* Products */;
 			projectDirPath = "";
@@ -298,34 +386,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DB406202C6276A400C8097A /* FirebaseManager.swift in Sources */,
 				1D8046592C4838BB0029B086 /* FishGoalVC.swift in Sources */,
 				1DDEAA342C54FE5900425161 /* ImageDetailsViewModel.swift in Sources */,
 				1DDEAA302C542D0900425161 /* GalleryCollectionViewCell.swift in Sources */,
+				1DB4068C2C6685D300C8097A /* Date+Ext.swift in Sources */,
 				1D4326A62C5D112900CF224B /* RecognizeViewModel.swift in Sources */,
 				1D66640D2C56C4A500FEF9B7 /* FishGoalViewModel.swift in Sources */,
 				1DF09B662C36972200F0943D /* HomepageController.swift in Sources */,
 				1D7E40E22C4A422D00325114 /* Location.swift in Sources */,
+				1D4326A92C5D45D000CF224B /* Endpoint.swift in Sources */,
+				1DB406812C63E90E00C8097A /* RegionDetailsViewController.swift in Sources */,
 				1D66640F2C596D7A00FEF9B7 /* MapKitViewController.swift in Sources */,
 				1DF09B622C36972200F0943D /* AppDelegate.swift in Sources */,
-				1D4326A22C5D0D9000CF224B /* Species.swift in Sources */,
+				1D4326A22C5D0D9000CF224B /* FishResponse.swift in Sources */,
 				1DF09B642C36972200F0943D /* SceneDelegate.swift in Sources */,
 				1D6664122C5AAC2100FEF9B7 /* Data+Ext.swift in Sources */,
 				1D66640B2C5642F700FEF9B7 /* String+Ext.swift in Sources */,
+				1DB406242C62911D00C8097A /* MapKitViewModel.swift in Sources */,
 				1D7305D72C4D4432003E411F /* FishModel.swift in Sources */,
+				1DB406852C64F4A300C8097A /* CustomAnnotationPoint.swift in Sources */,
 				1DDEAA3C2C554E2100425161 /* Delete.swift in Sources */,
 				1D51C39D2C52461800A1E8F2 /* ImagePickerViewController.swift in Sources */,
 				1D8B231A2C49755F003A970D /* HomepageViewModel.swift in Sources */,
+				1D58F35D2C5F5DCE00E7BAE5 /* ViewControllert+Ext.swift in Sources */,
+				1DB406222C6287FB00C8097A /* MapLocationsModel.swift in Sources */,
+				1D4326AD2C5D783500CF224B /* Token.swift in Sources */,
 				1DB4ADA12C4D472600D08AED /* Get.swift in Sources */,
+				1DB406832C63E92C00C8097A /* RegionDetailsViewModel.swift in Sources */,
 				1DDEAA382C54FEEF00425161 /* ImageModel.swift in Sources */,
+				1D4326AB2C5D768A00CF224B /* NetworkManager.swift in Sources */,
 				1DDEAA3A2C55084400425161 /* Post.swift in Sources */,
 				1D1923B22C49C41C0043266F /* AreaCollectionViewCell.swift in Sources */,
 				1D8B231D2C497682003A970D /* DamModel.swift in Sources */,
 				1D6664212C5BDBA500FEF9B7 /* AIResponseModel.swift in Sources */,
+				1D4326AF2C5D7B9F00CF224B /* EmptyResponse.swift in Sources */,
 				1DF06FD22C4E33F5002CFC9D /* FishDetailsController.swift in Sources */,
 				1DDEAA362C54FE6F00425161 /* ImagePickerViewModel.swift in Sources */,
 				1DF09B7D2C36A14300F0943D /* DamCollectionViewCell.swift in Sources */,
 				1D4326A42C5D106000CF224B /* RecognizeViewController.swift in Sources */,
+				1DB4068A2C66847400C8097A /* FishingProbability.swift in Sources */,
 				1D88B6D32C4EEEBF00887769 /* FishDetailsViewModel.swift in Sources */,
+				1D58F35F2C5FC8F600E7BAE5 /* RecognitionResultViewModel.swift in Sources */,
+				1D58F35B2C5EF55C00E7BAE5 /* RecognitionResultViewController.swift in Sources */,
+				1DB406282C6297F100C8097A /* LocationManager.swift in Sources */,
+				1DB4061E2C62743800C8097A /* FirebaseEndpoint.swift in Sources */,
 				1D2640062C52D2E9007817F9 /* CoreDataModel.xcdatamodeld in Sources */,
 				1DDEAA322C54F5E900425161 /* ImageDetailsViewController.swift in Sources */,
 			);
@@ -580,6 +685,22 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		1DB406172C623DFA00C8097A /* XCRemoteSwiftPackageReference "mongo-swift-driver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mongodb/mongo-swift-driver.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		1DB406862C65440A00C8097A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -612,6 +733,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1D6664222C5BE6DB00FEF9B7 /* XCRemoteSwiftPackageReference "SwiftHash" */;
 			productName = SwiftHash;
+		};
+		1DB406872C65440A00C8097A /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DB406862C65440A00C8097A /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 
