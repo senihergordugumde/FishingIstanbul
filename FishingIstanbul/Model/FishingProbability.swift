@@ -139,7 +139,7 @@ struct FishingProbability {
         )
         
         // Sonuç yüzdelik olarak döndürülüyor
-        return weightedProbability * 100
+        return (weightedProbability * 100) - 20
     }
     
 }

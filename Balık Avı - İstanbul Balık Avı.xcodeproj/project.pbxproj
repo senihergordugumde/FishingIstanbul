@@ -38,6 +38,7 @@
 		1D88B6D32C4EEEBF00887769 /* FishDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88B6D22C4EEEBF00887769 /* FishDetailsViewModel.swift */; };
 		1D8B231A2C49755F003A970D /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B23192C49755F003A970D /* HomepageViewModel.swift */; };
 		1D8B231D2C497682003A970D /* DamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8B231C2C497682003A970D /* DamModel.swift */; };
+		1D9F248E2C6A427A0031317A /* SearchFishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F248D2C6A427A0031317A /* SearchFishTableViewCell.swift */; };
 		1DB4061E2C62743800C8097A /* FirebaseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4061D2C62743800C8097A /* FirebaseEndpoint.swift */; };
 		1DB406202C6276A400C8097A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4061F2C6276A400C8097A /* FirebaseManager.swift */; };
 		1DB406222C6287FB00C8097A /* MapLocationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB406212C6287FB00C8097A /* MapLocationsModel.swift */; };
@@ -94,6 +95,7 @@
 		1D88B6D22C4EEEBF00887769 /* FishDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetailsViewModel.swift; sourceTree = "<group>"; };
 		1D8B23192C49755F003A970D /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
 		1D8B231C2C497682003A970D /* DamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamModel.swift; sourceTree = "<group>"; };
+		1D9F248D2C6A427A0031317A /* SearchFishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFishTableViewCell.swift; sourceTree = "<group>"; };
 		1DB4061D2C62743800C8097A /* FirebaseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseEndpoint.swift; sourceTree = "<group>"; };
 		1DB4061F2C6276A400C8097A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1DB406212C6287FB00C8097A /* MapLocationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationsModel.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				1D2640042C52D2E9007817F9 /* CoreDataModel.xcdatamodeld */,
 				1DDEAA2F2C542D0900425161 /* GalleryCollectionViewCell.swift */,
 				1DB406842C64F4A300C8097A /* CustomAnnotationPoint.swift */,
+				1D9F248D2C6A427A0031317A /* SearchFishTableViewCell.swift */,
 			);
 			path = FishingIstanbul;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				1DB406222C6287FB00C8097A /* MapLocationsModel.swift in Sources */,
 				1D4326AD2C5D783500CF224B /* Token.swift in Sources */,
 				1DB4ADA12C4D472600D08AED /* Get.swift in Sources */,
+				1D9F248E2C6A427A0031317A /* SearchFishTableViewCell.swift in Sources */,
 				1DB406832C63E92C00C8097A /* RegionDetailsViewModel.swift in Sources */,
 				1DDEAA382C54FEEF00425161 /* ImageModel.swift in Sources */,
 				1D4326AB2C5D768A00CF224B /* NetworkManager.swift in Sources */,
@@ -598,7 +602,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.emiraksu.FishingIstanbul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -628,7 +632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.emiraksu.FishingIstanbul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

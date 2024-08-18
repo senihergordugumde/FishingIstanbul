@@ -69,7 +69,7 @@ class RecognizeViewModel {
                                         completion(model)
                                     case .failure(let error):
                                         print("Fotoğraf Yükleme Hatası : \(error.localizedDescription)")
-                                        self.delegate?.AIError(title: "Fotoğraf Yükleme Hatası :", message: "Seçtiğiniz resmin boyutu çok büyük")
+                                        self.delegate?.AIError(title: "Fotoğraf Yükleme Hatası :", message: "Seçtiğiniz resmin boyutu çok büyük. Yeniden denemek sorunu çözebilir.")
                                         self.delegate?.stopIndicator()
 
                                     }

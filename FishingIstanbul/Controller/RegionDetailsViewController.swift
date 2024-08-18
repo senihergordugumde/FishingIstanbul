@@ -7,7 +7,7 @@
 
 import UIKit
 import MapKit
-class RegionDetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, RegionDetailsViewModelDelegate {
+class RegionDetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, RegionDetailsViewModelDelegate{
     func updateImage(image: UIImage) {
         DispatchQueue.main.async {
             self.imageView.image = image
@@ -19,7 +19,7 @@ class RegionDetailsViewController: UIViewController, UICollectionViewDelegate, U
         self.collectionView.reloadData()
     }
     
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var selectedRegionName: UILabel!
@@ -38,6 +38,8 @@ class RegionDetailsViewController: UIViewController, UICollectionViewDelegate, U
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 15
         
+        
+       
     }
     
     

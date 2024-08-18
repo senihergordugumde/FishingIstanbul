@@ -11,7 +11,7 @@ import WeatherKit
 import FirebaseFirestore
 import GoogleMobileAds
 
-class HomepageController: UIViewController, HomepageViewModelDelegate, GADFullScreenContentDelegate{
+class HomepageController: UIViewController, HomepageViewModelDelegate,GADFullScreenContentDelegate {
     
 
     
@@ -157,40 +157,40 @@ class HomepageController: UIViewController, HomepageViewModelDelegate, GADFullSc
         navigationController?.navigationBar.prefersLargeTitles = true
         weatherStatusView.layer.cornerRadius = 15
         weatherStatusView.translatesAutoresizingMaskIntoConstraints = false
+
+        Task{
+            
+            
+            do {
+                interstitial = try await GADInterstitialAd.load(
+                    withAdUnitID: "ca-app-pub-4730844635676967/8851620013", request: GADRequest())
+                interstitial?.fullScreenContentDelegate = self
+            } catch {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+            }
+            
+        }
+        
+        
+        
+        }
+
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+      print("Ad did fail to present full screen content.")
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad will present full screen content.")
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad did dismiss full screen content.")
+    }
+    
        
-        Task {
-             do {
-                 interstitial = try await GADInterstitialAd.load(
-                   withAdUnitID: "ca-app-pub-4730844635676967/9466053486", request: GADRequest())
-                 interstitial?.fullScreenContentDelegate = self
-               } catch {
-                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-               }
-         }
-        
-        guard let interstitial = interstitial else {
-          return print("Ad wasn't ready.")
-        }
-
-        // The UIViewController parameter is an optional.
-        interstitial.present(fromRootViewController: nil)
-        
-        }
-
-        /// Tells the delegate that the ad failed to present full screen content.
-        func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-          print("Ad did fail to present full screen content.")
-        }
-
-        /// Tells the delegate that the ad will present full screen content.
-        func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-          print("Ad will present full screen content.")
-        }
-
-        /// Tells the delegate that the ad dismissed full screen content.
-        func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-          print("Ad did dismiss full screen content.")
-        }
     func confStepper(){
         stepper.value = UserDefaults.standard.double(forKey: "stepperValue")
         currentFish.text = stepper.value.formatted()
@@ -221,6 +221,13 @@ class HomepageController: UIViewController, HomepageViewModelDelegate, GADFullSc
     
     @objc func progressViewClicked(){
         self.performSegue(withIdentifier: "statsChanger", sender: nil)
+        
+        guard let interstitial = interstitial else {
+          return print("Ad wasn't ready.")
+        }
+
+        // The UIViewController parameter is an optional.
+        interstitial.present(fromRootViewController: nil)
     }
    
     
@@ -269,6 +276,8 @@ extension HomepageController : UICollectionViewDelegate, UICollectionViewDataSou
                 destination.viewModel.fish =  viewModel.fishes[indexPath.row]
 
             }
+            
+          
         }
     }
     

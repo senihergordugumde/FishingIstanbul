@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class RecognizeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate, RecognizeViewModelDelegate {
+class RecognizeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate, RecognizeViewModelDelegate,GADFullScreenContentDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    private var interstitial: GADInterstitialAd?
+
     func startIndicator() {
         DispatchQueue.main.async{
             self.activityIndicator.startAnimating()
@@ -48,19 +51,55 @@ class RecognizeViewController: UIViewController, UIImagePickerControllerDelegate
                 }
             }
             
-        }
-    }
-    
+            
+             
+             guard let interstitial = interstitial else {
+               return print("Ad wasn't ready.")
+             }
 
+             // The UIViewController parameter is an optional.
+             interstitial.present(fromRootViewController: nil)
+        }
+      
+    }
+
+  
     @IBOutlet weak var fishName: UILabel!
     let viewModel = RecognizeViewModel()
     let imagePicker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-     
+        Task{
+            
+            
+            do {
+                interstitial = try await GADInterstitialAd.load(
+                    withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: GADRequest())
+                interstitial?.fullScreenContentDelegate = self
+            } catch {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+            }
+            
+        }
     }
     
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+      print("Ad did fail to present full screen content.")
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad will present full screen content.")
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad did dismiss full screen content.")
+    }
+    
+ 
     @IBAction func camera(_ sender: Any) {
         
         imagePicker.sourceType = .camera
@@ -88,7 +127,7 @@ class RecognizeViewController: UIViewController, UIImagePickerControllerDelegate
                  
                     print("MD5 Base64: \(hash)")
                 
-                    let compImage = image?.jpegData(compressionQuality: 0.7)
+                    let compImage = image?.jpegData(compressionQuality: 0.4)
                     let hash = compImage!.md5()
                     viewModel.fishRecognition(filename: file.lastPathComponent, content_type: "image/jpeg", byte_size: compImage!.count, checksum: hash, image: compImage!)
                 } catch {
